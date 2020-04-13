@@ -1,10 +1,20 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const cors = require('cors');
 const mysql = require('mysql');
+
+var corsOption = {
+  origin:true,
+  methods:'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials:true,
+  exposedHeaders:['x-auth-token']
+};
 
 // parse application/json
 app.use(bodyParser.json());
+
+app.use(cors(corsOption));
 //create database connection
 const conn = mysql.createConnection({
   host: 'localhost',

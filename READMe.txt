@@ -9,3 +9,6 @@ flush privileges;
 
 Debug
 node --inspect --debug index.js
+
+Install CORS
+> npm install cors
